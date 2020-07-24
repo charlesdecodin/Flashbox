@@ -1,0 +1,9 @@
+.main-input{
+    border: none;
+    border-bottom: 2px solid grey ;
+    background: none;
+    padding: 5px;
+    margin: 30px;
+    width: 80%;
+    font-size: 17px;
+}

@@ -1,0 +1,11 @@
+.home-button{
+    border: none;
+    width: 250px;
+    height: 70px;
+    box-shadow: 3px 5px 15px 5px rgba(42, 46, 54, 0.77) ;
+    background: none;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 23px;
+}
