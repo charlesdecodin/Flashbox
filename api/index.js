@@ -5,6 +5,7 @@ const app = express()
 const port = 4000
 
 const accountQueries = require('./queries/account')
+const Auth = require('./middleware/Auth.js')
 
 app.use(cors())
 
