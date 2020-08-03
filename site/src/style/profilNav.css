@@ -2,7 +2,7 @@
     flex-direction: column;
     padding: 15px;
     border-top: 2px solid #292d36;
-    width: 100vw;
+    width: 96%;
     position: relative;
     transition-duration: .8s;
     background-color: #2B303A;
@@ -19,4 +19,9 @@
 
 .profil-nav>li{
     padding: 5px;
+}
+
+.profil-nav>li>a{
+    color: #cccccc;
+    text-decoration: none;
 }

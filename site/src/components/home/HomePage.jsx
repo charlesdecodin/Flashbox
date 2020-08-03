@@ -13,7 +13,7 @@ export default function HomePage() {
                 />
                 <HomeButton
                     buttonValue="S'inscrire"
-                    link="signUp"
+                    link="/signUp"
                     color="#82E2CB"
                 />
             </div>

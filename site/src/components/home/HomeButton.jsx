@@ -6,6 +6,7 @@ import Context from '../../context/context'
 export default function HomeButton({ buttonValue, link, color, state, path }) {
 
     const {server} = useContext(Context)
+    const token= localStorage.getItem('token') || sessionStorage.getItem('token')
 
     const fetchAccount = async()=>{
         console.log(state);
@@ -22,8 +23,10 @@ export default function HomeButton({ buttonValue, link, color, state, path }) {
         console.log(content);
         if (content.token && content.connect){
             localStorage.setItem('token', content.token)
+            window.location.href = "main"
         }else if(content.token){
             sessionStorage.setItem('token', content.token)
+            window.location.href = "main"
         }
 
     }
@@ -35,7 +38,7 @@ export default function HomeButton({ buttonValue, link, color, state, path }) {
     }
 
     return (
-        <Link to={link?`/${link}`:window.location.pathname}>
+        <Link to={link?`${link}`:window.location.pathname}>
          <button  onClick={handleInput} className="home-button" style={{color: color}}>{buttonValue}</button>
         </Link>
     )
