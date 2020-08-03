@@ -1,7 +1,9 @@
 import React from 'react'
 
 export default React.createContext({
+    toggleProfilNav: "",
     server: "", 
-    token: "", 
-    setToken: (name)=>{}
+    toggleNav: "",
+    setToggleNav: (name)=>{},
+    setToggleProfilNav: (name)=>{}
 })

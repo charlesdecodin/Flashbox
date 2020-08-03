@@ -1,0 +1,28 @@
+.navbar{
+    width: 100vw;
+   position: relative;
+   transition-duration: .8s
+}
+
+.navbar>ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0;
+    background-color: #2B303A;
+}
+
+.navbar>ul>li{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.list-navbar>li:nth-child(3){
+    margin-top: 3px;
+}
+.listnavbar>li:nth-child(4){
+    margin-bottom: 3px;
+}

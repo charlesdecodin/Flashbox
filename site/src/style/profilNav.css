@@ -1,0 +1,22 @@
+.profil-nav{
+    flex-direction: column;
+    padding: 15px;
+    border-top: 2px solid #292d36;
+    width: 100vw;
+    position: relative;
+    transition-duration: .8s;
+    background-color: #2B303A;
+}
+
+.profil-nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0;
+    background-color: #2B303A;
+    list-style: none;
+}
+
+.profil-nav>li{
+    padding: 5px;
+}
