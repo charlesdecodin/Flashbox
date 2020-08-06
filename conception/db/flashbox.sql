@@ -32,6 +32,7 @@ CREATE TABLE squad
     squad_name VARCHAR(30),
     primary_color VARCHAR(7),
     secondary_color VARCHAR(7),
+    category_id UUID,
     FOREIGN KEY (category_id) REFERENCES category (category_id) ON DELETE CASCADE
 );
 
@@ -43,5 +44,6 @@ CREATE TABLE card
     evaluation BIT,
     card_rank INTEGER,
     last_update TIME,
+    squad_id UUID,	
     FOREIGN KEY (squad_id) REFERENCES squad (squad_id) ON DELETE CASCADE
 );
