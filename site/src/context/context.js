@@ -2,6 +2,7 @@ import React from 'react'
 
 export default React.createContext({
     card: "",
+    categories: "",
     squad: "",
     category: "",
     toggleProfilNav: "",
@@ -12,4 +13,5 @@ export default React.createContext({
     setCategory: (name)=>{},
     setSquad: (name)=>{},
     setCard: (name)=>{},
+    setCategories: (name)=>{},
 })

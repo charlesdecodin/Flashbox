@@ -24,6 +24,7 @@ function App() {
    })
   const [squad, setSquad] = useState({})
   const [card, setCard] = useState({})
+  const [categories, setCategories] = useState([])
 
   const hideNav = () => {
     if(toggleNav){
@@ -39,6 +40,7 @@ function App() {
   const token= localStorage.getItem('token') || sessionStorage.getItem('token')
 
   const context ={
+    categories,
     card,
     squad,
     category,
@@ -49,7 +51,8 @@ function App() {
     setToggleProfilNav,
     setCategory,
     setSquad,
-    setCard
+    setCard,
+    setCategories
   }
 
   return (
