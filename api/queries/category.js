@@ -3,12 +3,15 @@ const jwt = require('jsonwebtoken');
 const { uuid } = require('uuidv4');
 
 const getCategoriesByAccountId = (request, response) => {
+    console.log('hello');
     const token = request.headers['x-access-token'];
+    console.log(token);
     const decoded = jwt.verify(token, process.env.SECRET)
     db.query('SELECT * FROM account NATURAL JOIN account_category NATURAL JOIN category WHERE account_id = $1', [decoded.account_id], (error, results)=>{
         if (error){
             throw error
         }
+        console.log(results.rows);
         response.status(200).json(results.rows)
     })
 }
@@ -25,10 +28,7 @@ const createCategories = (request, response) =>{
         if (error) {
             throw error
         }
-        response.status(201).send({
-            message: `${value[1]} ajouté`,
-            id: value[0]
-        })
+        response.status(201).send({id: value[0]})
     })
 }
 
