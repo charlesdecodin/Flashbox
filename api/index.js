@@ -5,6 +5,7 @@ const app = express()
 const port = 4000
 
 const accountQueries = require('./queries/account')
+const categoryQueries = require('./queries/category')
 const Auth = require('./middleware/Auth.js')
 
 app.use(cors())
@@ -21,6 +22,10 @@ app.use(
 app.get('/account', accountQueries.getAccount)
 app.post('/account', accountQueries.postAccount)
 app.post('/login', accountQueries.loginAccount)
+
+/* CATEGORY */
+
+app.get('/category', categoryQueries.getCategoriesByAccountId)
 
   app.listen(port, () => {
     console.log(`App running on port ${port}.`)
