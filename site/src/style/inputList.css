@@ -1,20 +1,19 @@
-input[type=text]{
+select{
     border: none;
     border-bottom: 2px solid #CCCCCC ;
     background: none;
     padding: 5px;
     margin: 30px;
-    width: 80%;
+    width: 83%;
     font-size: 17px;
     color: #CCCCCC;
 }
 
-input[type=text]::placeholder{
-    color: #CCCCCC;
-}
-
-
-input[type=text]:focus{
+select:focus{
     outline: none;
     border-bottom: 2px solid lightblue;
+}
+
+select>option{
+    background-color: #2B303A;
 }

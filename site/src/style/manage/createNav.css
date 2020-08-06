@@ -1,0 +1,20 @@
+.nav-create{
+    box-shadow: 0px 1px 10px 1px #20232a;
+    margin-top: -5px;
+}
+
+.nav-create>ul{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+    padding: 10px;
+}
+
+.nav-create>ul>li{
+    list-style: none;
+}
+
+.nav-create>ul>li>a{
+    list-style: none;
+    text-decoration: none;
+}

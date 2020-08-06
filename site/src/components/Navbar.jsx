@@ -7,6 +7,7 @@ import store from '../images/store.svg'
 import profil from '../images/profil.svg'
 import '../style/main/navbar.css'
 import Context from '../context/context'
+import { Link } from 'react-router-dom'
 
 
 export default function Navbar() {
@@ -22,7 +23,7 @@ export default function Navbar() {
            <ul className="list-navbar">
                <li><img src={home} alt=""/></li>
                <li><img src={play} alt=""/></li>
-               <li><img src={plus} alt=""/></li>
+               <li><Link to="/add"><img src={plus} alt=""/></Link></li>
                <li><img src={update} alt=""/></li>
                <li><img src={store} alt=""/></li>
                <li onClick={handlerProfilNav}><img src={profil} alt=""/></li>

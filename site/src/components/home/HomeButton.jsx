@@ -6,7 +6,6 @@ import Context from '../../context/context'
 export default function HomeButton({ buttonValue, link, color, state, path }) {
 
     const {server} = useContext(Context)
-    const token= localStorage.getItem('token') || sessionStorage.getItem('token')
 
     const fetchAccount = async()=>{
         console.log(state);
