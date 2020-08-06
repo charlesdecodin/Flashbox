@@ -12,7 +12,7 @@ CREATE TABLE account
 CREATE TABLE category
 (
     category_id UUID PRIMARY KEY,
-    category_name VARCHAR(30),
+    noun VARCHAR(30),
     primary_color VARCHAR(7),
     secondary_color VARCHAR(7)
 );
@@ -29,7 +29,7 @@ CREATE TABLE account_category
 CREATE TABLE squad
 (
     squad_id UUID PRIMARY KEY,
-    squad_name VARCHAR(30),
+    noun VARCHAR(30),
     primary_color VARCHAR(7),
     secondary_color VARCHAR(7),
     category_id UUID,
