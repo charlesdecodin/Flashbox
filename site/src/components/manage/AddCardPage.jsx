@@ -33,9 +33,7 @@ export default function AddCardPage() {
                     name="name"
                     type="text"
                 />
-                <InputList />
-                <InputList />
-                <InputList />
+               
                 <AddButton
                     state={card}
                 />

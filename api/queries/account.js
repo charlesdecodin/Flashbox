@@ -34,7 +34,6 @@ const postAccount = (request, response) => {
                 return response.status(400).send({ error: 'Adresse e-mail déjà utilisée' })
             } else {
                 const hashPassword = Helper.hashPassword(request.body.password)
-                console.log(hashPassword);
 
                 const value = [
                     uuid(),
@@ -44,14 +43,11 @@ const postAccount = (request, response) => {
                     hashPassword
                 ]
 
-                console.log(value);
-
-
                 db.query('INSERT INTO account(account_id, first_name, last_name, email, password) values ($1, $2, $3, $4, $5) returning *', value, (error, result) => {
                     if (error) {
                         throw error
                     }
-                    console.log(result);
+                
                     const token = Helper.generateToken(result.rows[0].account_id)
                     return response.status(201).send({ token })
                 })

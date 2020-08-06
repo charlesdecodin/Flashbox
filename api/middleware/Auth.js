@@ -2,10 +2,10 @@ const jwt = require('jsonwebtoken');
 const db = require('../db/database')
 
 const verifyToken = (request, response, next) =>{
-    const token = req.headers['x-access-token'];
+    const token = request.headers['x-access-token'];
 
     if (!token) {
-        return res.status(400).send({ 'message': 'Token is not provided' });
+        return response.status(400).send({ 'message': 'Token is not provided' });
     }
 
     const decoded = jwt.verify(token, process.env.SECRET)

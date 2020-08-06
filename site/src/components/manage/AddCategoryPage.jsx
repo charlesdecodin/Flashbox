@@ -10,7 +10,7 @@ import Context from '../../context/context'
 export default function AddCategoryPage() {
 
     const { category, setCategory } = useContext(Context)
-    console.log(category);
+   
     return (
         <div>
             <Header />

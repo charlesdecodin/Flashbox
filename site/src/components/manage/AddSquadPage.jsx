@@ -10,7 +10,7 @@ import Context from '../../context/context'
 
 export default function AddSquadPage() {
 
-    const { squad, setSquad } = useContext(Context)
+    const { squad, setSquad, categories, setCategories } = useContext(Context)
 
     return (
         <div>
@@ -26,7 +26,12 @@ export default function AddSquadPage() {
                     name="name"
                     type="text"
                 />
-                <InputList />
+                <InputList 
+                    state={categories}
+                    setState={setCategories}
+                    path="category"
+                    value="category_name"
+                />
                 <AddButton
                     state={squad}
                 />

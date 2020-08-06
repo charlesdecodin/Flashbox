@@ -8,7 +8,7 @@ export default function HomeButton({ buttonValue, link, color, state, path }) {
     const {server} = useContext(Context)
 
     const fetchAccount = async()=>{
-        console.log(state);
+   
         const config = {
             headers : { 
                 "Content-Type": "application/json",
@@ -16,10 +16,10 @@ export default function HomeButton({ buttonValue, link, color, state, path }) {
             method: "POST",
             body: JSON.stringify(state),
         }
-        console.log(config.body);
+
         const promise = await fetch(`${server}/${path}`, config)
         const content = await promise.json()
-        console.log(content);
+  
         if (content.token && content.connect){
             localStorage.setItem('token', content.token)
             window.location.href = "main"
