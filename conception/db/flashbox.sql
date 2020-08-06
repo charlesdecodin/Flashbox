@@ -13,11 +13,11 @@ CREATE TABLE category
 (
     category_id UUID PRIMARY KEY,
     category_name VARCHAR(30),
-    primary_color INTEGER,
-    secondary_color INTEGER
+    primary_color VARCHAR(7),
+    secondary_color VARCHAR(7)
 );
 
-CREATE TABLE account_categorie
+CREATE TABLE account_category
 (
     account_category_id UUID PRIMARY KEY,
     account_id UUID,
@@ -30,8 +30,8 @@ CREATE TABLE squad
 (
     squad_id UUID PRIMARY KEY,
     squad_name VARCHAR(30),
-    primary_color INTEGER,
-    secondary_color INTEGER,
+    primary_color VARCHAR(7),
+    secondary_color VARCHAR(7),
     FOREIGN KEY (category_id) REFERENCES category (category_id) ON DELETE CASCADE
 );
 
