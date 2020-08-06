@@ -17,7 +17,7 @@ const createCategories = (request, response) =>{
 
     const value = [
         uuid(),
-        request.body.category_name,
+        request.body.name,
         request.body.primary_color,
         request.body.secondary_color
     ]
@@ -25,7 +25,10 @@ const createCategories = (request, response) =>{
         if (error) {
             throw error
         }
-        response.status(201).send({message: `${value[1]} ajouté`})
+        response.status(201).send({
+            message: `${value[1]} ajouté`,
+            id: value[0]
+        })
     })
 }
 
