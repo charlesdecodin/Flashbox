@@ -1,5 +1,6 @@
 const db = require('../db/database');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { uuid } = require('uuidv4');
 
 const getCategoriesByAccountId = (request, response) => {
     const token = request.headers['x-access-token'];
@@ -12,6 +13,23 @@ const getCategoriesByAccountId = (request, response) => {
     })
 }
 
+const createCategories = (request, response) =>{
+
+    const value = [
+        uuid(),
+        request.body.category_name,
+        request.body.primary_color,
+        request.body.secondary_color
+    ]
+    db.query('INSERT INTO category VALUES ($1, $2, $3, $4)', value, (error, result)=>{
+        if (error) {
+            throw error
+        }
+        response.status(201).send({message: `${value[1]} ajouté`})
+    })
+}
+
 module.exports = {
-    getCategoriesByAccountId
+    getCategoriesByAccountId,
+    createCategories
 }

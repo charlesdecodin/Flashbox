@@ -26,6 +26,7 @@ app.post('/login', accountQueries.loginAccount)
 /* CATEGORY */
 
 app.get('/category', categoryQueries.getCategoriesByAccountId)
+app.post('/category', categoryQueries.createCategories)
 
   app.listen(port, () => {
     console.log(`App running on port ${port}.`)
