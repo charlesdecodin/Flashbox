@@ -10,7 +10,7 @@ import Context from '../../context/context'
 
 export default function AddCardPage() {
 
-    const { card, setCard } = useContext(Context)
+    const { card, setCard, categories, setCategories } = useContext(Context)
 
     return (
         <div>
@@ -32,6 +32,12 @@ export default function AddCardPage() {
                     placeholder="Verso"
                     name="name"
                     type="text"
+                />
+                 <InputList 
+                    state={categories}
+                    setState={setCategories}
+                    path="category"
+                    value="category_name"
                 />
                
                 <AddButton

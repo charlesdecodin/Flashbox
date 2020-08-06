@@ -12,6 +12,8 @@ export default function AddSquadPage() {
 
     const { squad, setSquad, categories, setCategories } = useContext(Context)
 
+    console.log(squad);
+
     return (
         <div>
             <Header />
@@ -34,6 +36,7 @@ export default function AddSquadPage() {
                 />
                 <AddButton
                     state={squad}
+                    path="squad"
                 />
             </div>
 

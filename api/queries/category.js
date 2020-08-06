@@ -3,9 +3,9 @@ const jwt = require('jsonwebtoken');
 const { uuid } = require('uuidv4');
 
 const getCategoriesByAccountId = (request, response) => {
-    console.log('hello');
+ 
     const token = request.headers['x-access-token'];
-    console.log(token);
+
     const decoded = jwt.verify(token, process.env.SECRET)
     db.query('SELECT * FROM account NATURAL JOIN account_category NATURAL JOIN category WHERE account_id = $1', [decoded.account_id], (error, results)=>{
         if (error){
