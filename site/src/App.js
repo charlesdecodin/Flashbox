@@ -19,7 +19,9 @@ function App() {
   const server = process.env.REACT_APP_SERVER_PATH
   const [toggleNav, setToggleNav] = useState(false)
   const [toggleProfilNav, setToggleProfilNav] = useState(false)
-  const [category, setCategory] = useState({})
+  const [category, setCategory] = useState({
+    primary_color: "#000000",
+   })
   const [squad, setSquad] = useState({})
   const [card, setCard] = useState({})
 

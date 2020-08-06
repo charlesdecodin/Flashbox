@@ -27,6 +27,7 @@ export default function AddCategoryPage() {
                 />
                 <AddButton
                     state={category}
+                    path="category"
                 />
             </div>
         </div>
