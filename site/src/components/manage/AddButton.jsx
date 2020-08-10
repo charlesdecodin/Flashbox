@@ -5,7 +5,7 @@ import Context from '../../context/context'
 
 export default function AddButton({state, path}) {
 
-    const {server} = useContext(Context)
+    const {server, setValidationMessage, setToggleValidation} = useContext(Context)
     
     const sendState = async() =>{
         const token = localStorage.getItem('token') || sessionStorage.getItem('token')
@@ -19,7 +19,11 @@ export default function AddButton({state, path}) {
         }
         const promise = await fetch(`${server}/${path}`, config)
         const content = await promise.json()
-  
+        
+        setValidationMessage(content.message);
+
+        setToggleValidation(true)
+        setTimeout(()=>{setToggleValidation(false)}, 1000)
 
         if(content && path === "category"){
           

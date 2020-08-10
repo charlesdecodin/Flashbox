@@ -28,7 +28,7 @@ const createCategories = (request, response) =>{
         if (error) {
             throw error
         }
-        response.status(201).send({id: value[0]})
+        response.status(201).send({id: value[0], message: 'Catégorie créée'})
     })
 }
 

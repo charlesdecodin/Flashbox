@@ -1,7 +1,9 @@
 import React from 'react'
 
 export default React.createContext({
+    toggleValidation: "",
     card: "",
+    validationMessage: "",
     categories: "",
     squad: "",
     squads: "",
@@ -16,4 +18,6 @@ export default React.createContext({
     setSquads: (name)=>{},
     setCard: (name)=>{},
     setCategories: (name)=>{},
+    setValidationMessage: (name)=>{},
+    setToggleValidation: (name)=>{},
 })

@@ -4,6 +4,7 @@ import Input from '../Input.jsx'
 import AddButton from './AddButton.jsx'
 import CreateNav from './CreateNav.jsx'
 import Context from '../../context/context'
+import ValidationMessage from './ValidationMessage.jsx'
 
 
 
@@ -29,6 +30,9 @@ export default function AddCategoryPage() {
                     state={category}
                     path="category"
                 />
+
+                <ValidationMessage/>
+
             </div>
         </div>
     )

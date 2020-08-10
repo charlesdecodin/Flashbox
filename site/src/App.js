@@ -26,7 +26,11 @@ function App() {
   const [card, setCard] = useState({evaluation: 1})
   const [categories, setCategories] = useState([])
   const [squads, setSquads] = useState([])
+  const [validationMessage, setValidationMessage] = useState('')
+  const [toggleValidation, setToggleValidation] = useState(false)
 
+
+  console.log(validationMessage);
 
 
   const hideNav = () => {
@@ -43,6 +47,8 @@ function App() {
   const token= localStorage.getItem('token') || sessionStorage.getItem('token')
 
   const context ={
+    toggleValidation,
+    validationMessage,
     squads,
     categories,
     card,
@@ -57,7 +63,9 @@ function App() {
     setSquad,
     setCard,
     setSquads,
-    setCategories
+    setCategories,
+    setValidationMessage,
+    setToggleValidation
   }
 
   return (

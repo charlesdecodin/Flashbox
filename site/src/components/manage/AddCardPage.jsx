@@ -6,6 +6,7 @@ import InputListSquad from './InputListSquad.jsx'
 import AddButton from './AddButton.jsx'
 import CreateNav from './CreateNav.jsx'
 import Context from '../../context/context'
+import ValidationMessage from './ValidationMessage.jsx'
 
 
 
@@ -14,7 +15,6 @@ export default function AddCardPage() {
     const { server, card, setCard, categories, setCategories, squad, setSquad, squads, setSquads} = useContext(Context)
     
    
-    console.log(card);
 
     const getEval = (e) => {
         console.log(e.target.value);
@@ -61,6 +61,7 @@ export default function AddCardPage() {
                     state={card}
                     path="card"
                 />
+                <ValidationMessage/>
             </div>
 
         </div>
