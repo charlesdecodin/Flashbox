@@ -16,6 +16,7 @@ export default function SignUp() {
                     state = {account}
                     name="first_name"
                     type="text"
+                    value={account.first_name}
                 />
                 <Input
                     placeholder="Nom"
@@ -23,6 +24,7 @@ export default function SignUp() {
                     state = {account}
                     name="last_name"
                     type="text"
+                    value={account.last_name}
                 />
                 <Input
                     placeholder="Email"
@@ -30,6 +32,7 @@ export default function SignUp() {
                     state = {account}
                     name="email"
                     type="text"
+                    value={account.email}
                 />
                 <Input
                     placeholder="Mot de passe"
@@ -37,6 +40,7 @@ export default function SignUp() {
                     state = {account}
                     name="password"
                     type="text"
+                    value={account.password}
                 />
                 <Input
                     placeholder="Confirmer Mot de passe"
@@ -44,6 +48,7 @@ export default function SignUp() {
                     state = {account}
                     name="confirm_password"
                     type="text"
+                    value={account.confirm_password}
                 />
                   <HomeButton
                     buttonValue="S'inscrire"

@@ -18,6 +18,7 @@ export default function LoginPage() {
                     state = {login}
                     name="email"
                     type="text"
+                    value={login.email}
                 />
                 <Input
                     placeholder="Mot de passe"
@@ -25,6 +26,7 @@ export default function LoginPage() {
                     state = {login}
                     name="password"
                     type="text"
+                    value={login.password}
                 />
                 <div>
                   <Input

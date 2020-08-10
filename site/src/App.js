@@ -19,9 +19,7 @@ function App() {
   const server = process.env.REACT_APP_SERVER_PATH
   const [toggleNav, setToggleNav] = useState(false)
   const [toggleProfilNav, setToggleProfilNav] = useState(false)
-  const [category, setCategory] = useState({
-    primary_color: "#000000",
-   })
+  const [category, setCategory] = useState({})
   const [squad, setSquad] = useState({})
   const [card, setCard] = useState({evaluation: 1})
   const [categories, setCategories] = useState([])
@@ -30,7 +28,6 @@ function App() {
   const [toggleValidation, setToggleValidation] = useState(false)
 
 
-  console.log(validationMessage);
 
 
   const hideNav = () => {

@@ -25,14 +25,16 @@ export default function AddCategoryPage() {
                     placeholder="Nom"
                     name="name"
                     type="text"
+                    value={category.name}
                 />
                 <AddButton
                     state={category}
                     path="category"
+                    setState={setCategory}
+                   
                 />
 
                 <ValidationMessage/>
-
             </div>
         </div>
     )

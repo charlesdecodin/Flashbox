@@ -3,7 +3,7 @@ import plus from '../../images/plus.svg'
 import '../../style/manage/addButton.css'
 import Context from '../../context/context'
 
-export default function AddButton({state, path}) {
+export default function AddButton({state, path, setState}) {
 
     const {server, setValidationMessage, setToggleValidation} = useContext(Context)
     
@@ -22,10 +22,23 @@ export default function AddButton({state, path}) {
         
         setValidationMessage(content.message);
 
-        setToggleValidation(true)
-        setTimeout(()=>{setToggleValidation(false)}, 1000)
+        if(path === "card"){
+             setState({evaluation: 1})
+        }else{
+            setState({})
+        }
+       
 
-        if(content && path === "category"){
+        setToggleValidation(true)
+        
+        setTimeout(()=>{
+            setToggleValidation(false)}
+            , 1000)
+        
+          
+        
+
+        if(content.validation && path === "category"){
           
             const configLink = {
                 headers : { 

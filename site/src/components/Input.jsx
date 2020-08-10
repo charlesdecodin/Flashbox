@@ -1,7 +1,7 @@
 import React from 'react'
 import '../style/input.css'
 
-export default function Input({ placeholder, setState, name, state, type }) {
+export default function Input({ placeholder, setState, name, state, type, value }) {
 
     const handleValue = (e) => {
         //change value if input type is text
@@ -21,6 +21,6 @@ export default function Input({ placeholder, setState, name, state, type }) {
     }
 
     return (
-        <input onChange={handleValue} type={type} placeholder={placeholder} />
+        <input onChange={handleValue} type={type} placeholder={placeholder} value={value? value : ""} />
     )
 }

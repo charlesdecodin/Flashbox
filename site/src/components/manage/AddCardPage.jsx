@@ -17,7 +17,6 @@ export default function AddCardPage() {
    
 
     const getEval = (e) => {
-        console.log(e.target.value);
         setCard({...card, evaluation: e.target.value})
     }
 
@@ -34,6 +33,7 @@ export default function AddCardPage() {
                     placeholder="Recto"
                     name="recto"
                     type="text"
+                    value={card.recto}
                 />
                 <Input
                     state={card}
@@ -41,6 +41,7 @@ export default function AddCardPage() {
                     placeholder="Verso"
                     name="verso"
                     type="text"
+                    value={card.verso}
                 />
                  <InputListCategories
                     state={categories}
@@ -60,6 +61,8 @@ export default function AddCardPage() {
                 <AddButton
                     state={card}
                     path="card"
+                    setContentState={setCard}
+                    setState={setCard}
                 />
                 <ValidationMessage/>
             </div>

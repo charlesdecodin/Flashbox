@@ -15,6 +15,7 @@ const createCard = (request, response)=>{
         new Date(),
         request.body.parent
     ]
+    
 
 
     db.query('INSERT INTO card VALUES ($1, $2, $3, $4, $5, $6, $7)', value, (error, result) =>{

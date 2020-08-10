@@ -26,6 +26,7 @@ export default function AddSquadPage() {
                     placeholder="Nom"
                     name="name"
                     type="text"
+                    value={squad.name}
                 />
                 <InputListCategories
                     state={categories}
@@ -38,6 +39,8 @@ export default function AddSquadPage() {
                 <AddButton
                     state={squad}
                     path="squad"
+                    setContentState={setSquad}
+                    setState={setSquad}
                 />
                 <ValidationMessage/>
             </div>
