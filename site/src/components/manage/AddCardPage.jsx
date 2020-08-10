@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Header from '../Header.jsx'
 import Input from '../Input.jsx'
 import InputList from '../InputList.jsx'
@@ -10,7 +10,27 @@ import Context from '../../context/context'
 
 export default function AddCardPage() {
 
-    const { card, setCard, categories, setCategories } = useContext(Context)
+    const { server, card, setCard, categories, setCategories, squad, setSquad, squads, setSquads} = useContext(Context)
+        console.log(squad);
+    useEffect(()=>{
+        const getSquads = async () =>{
+            const config = {
+                headers : {
+                    'content-type': 'application/json',
+                },
+                method: 'get'
+            }
+            const promise = await fetch(`${server}/squad/${squad.parent.category_id}`, config)
+            const content = await promise.json()
+            console.log(content);
+        }
+        if(squad && squad.parent && squad.parent.category_id){
+            getSquads() 
+        }
+       
+    },[squad])
+
+    console.log(squad);
 
     return (
         <div>
@@ -37,9 +57,10 @@ export default function AddCardPage() {
                     state={categories}
                     setState={setCategories}
                     path="category"
-                    value="category_name"
+                    secondState={squad}
+                    setSecondState={setSquad}
                 />
-               
+
                 <AddButton
                     state={card}
                 />
