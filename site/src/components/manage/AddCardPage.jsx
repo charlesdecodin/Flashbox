@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Header from '../Header.jsx'
 import Input from '../Input.jsx'
-import InputList from '../InputListCategories.jsx'
+import InputListCategories from './InputListCategories.jsx'
+import InputListSquad from './InputListSquad.jsx'
 import AddButton from './AddButton.jsx'
 import CreateNav from './CreateNav.jsx'
 import Context from '../../context/context'
@@ -11,26 +12,14 @@ import Context from '../../context/context'
 export default function AddCardPage() {
 
     const { server, card, setCard, categories, setCategories, squad, setSquad, squads, setSquads} = useContext(Context)
-        console.log(squad);
-    useEffect(()=>{
-        const getSquads = async () =>{
-            const config = {
-                headers : {
-                    'content-type': 'application/json',
-                },
-                method: 'get'
-            }
-            const promise = await fetch(`${server}/squad/${squad.parent.category_id}`, config)
-            const content = await promise.json()
-            console.log(content);
-        }
-        if(squad && squad.parent && squad.parent.category_id){
-            getSquads() 
-        }
-       
-    },[squad])
+    
+   
+    console.log(card);
 
-    console.log(squad);
+    const getEval = (e) => {
+        console.log(e.target.value);
+        setCard({...card, evaluation: e.target.value})
+    }
 
     return (
         <div>
@@ -43,23 +32,30 @@ export default function AddCardPage() {
                     state={card}
                     setState={setCard}
                     placeholder="Recto"
-                    name="name"
+                    name="recto"
                     type="text"
                 />
                 <Input
                     state={card}
                     setState={setCard}
                     placeholder="Verso"
-                    name="name"
+                    name="verso"
                     type="text"
                 />
-                 <InputList 
+                 <InputListCategories
                     state={categories}
                     setState={setCategories}
                     path="category"
                     secondState={squad}
                     setSecondState={setSquad}
                 />
+
+                <InputListSquad/>
+
+                <select onChange={e =>getEval(e)}>
+                    <option value="own">Evaluation personnelle</option>
+                    <option value="computer">Evaluation ordinateur</option>
+                </select>
 
                 <AddButton
                     state={card}

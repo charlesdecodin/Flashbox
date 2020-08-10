@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
-import '../style/inputList.css'
-import Context from '../context/context'
+import '../../style/inputList.css'
+import Context from '../../context/context'
 
 
 export default function InputList({state, setState, path, secondState, setSecondState}) {
@@ -34,7 +34,8 @@ export default function InputList({state, setState, path, secondState, setSecond
    }
    
     return (
-        <select onChange={e =>getId(e)} className="" name="" id="" value={secondState && secondState.parent && secondState.parent.noun}>
+        <select onChange={e =>getId(e)}>
+            <option value="">Categorie</option>
             {state.map((item, index)=>{
                 return(
                      <option key={index}>{item.noun}</option>

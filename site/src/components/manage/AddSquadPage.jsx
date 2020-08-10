@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Header from '../Header.jsx'
 import Input from '../Input.jsx'
-import InputList from '../InputListCategories.jsx'
+import InputListCategories from './InputListCategories.jsx'
 import AddButton from './AddButton.jsx'
 import CreateNav from './CreateNav.jsx'
 import Context from '../../context/context'
@@ -11,8 +11,6 @@ import Context from '../../context/context'
 export default function AddSquadPage() {
 
     const { squad, setSquad, categories, setCategories } = useContext(Context)
-
-    console.log(squad);
 
     return (
         <div>
@@ -28,7 +26,7 @@ export default function AddSquadPage() {
                     name="name"
                     type="text"
                 />
-                <InputList 
+                <InputListCategories
                     state={categories}
                     setState={setCategories}
                     secondState={squad}
