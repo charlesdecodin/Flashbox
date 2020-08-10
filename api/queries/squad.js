@@ -9,10 +9,8 @@ const createSquad = (request, response)=>{
         request.body.name,
         request.body.primary_color,
         request.body.secondary_color,
-        request.body.category_id,
+        request.body.parent.category_id,
     ]
-
-    console.log(value);
 
     db.query('INSERT INTO squad VALUES ($1, $2, $3, $4, $5)', value, (error, result)=>{
         if(error){
@@ -22,6 +20,18 @@ const createSquad = (request, response)=>{
     })
 }
 
+const getSquadByCategoryId = (request, response)=>{
+    const id = request.params.id
+    console.log(id);
+    db.query('SELECT * FROM squad where category_id = $1', [id], (error, results)=>{
+        if(error){
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
 module.exports = {
-    createSquad
+    createSquad,
+    getSquadByCategoryId
 }

@@ -31,6 +31,8 @@ export default function AddSquadPage() {
                 <InputList 
                     state={categories}
                     setState={setCategories}
+                    secondState={squad}
+                    setSecondState={setSquad}
                     path="category"
                     value="category_name"
                 />

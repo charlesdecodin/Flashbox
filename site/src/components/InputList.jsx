@@ -1,36 +1,40 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import '../style/inputList.css'
 import Context from '../context/context'
 
-export default function InputList({state, setState, path}) {
-    const {server, squad, setSquad} = useContext(Context)
+
+export default function InputList({state, setState, path, secondState, setSecondState}) {
+    const { server } = useContext(Context)
     
     const token = localStorage.getItem('token') || sessionStorage.getItem('token')
 
    useEffect(() => {
-    const getCategories = async () =>{
+    const getData = async () =>{
+
         const config = {
             headers : { 
                 'x-access-token': token
             },
         }
+        
         const promise = await fetch(`${server}/${path}`, config)
         const content = await promise.json()
-
+        
         setState(content)
+        setSecondState({...secondState, parent: content[content.length-1]})
     }
-    getCategories()
-   }, [])
+    getData()
+   }, [path, server, setState, token])
 
-   const getCategorieId = (e) =>{
- 
-    const category_id = state.find(element => element.noun === e.target.value)
-    setSquad({...squad, category_id: category_id.category_id})
+   const getId = (e) =>{
+
+    const parent = state.find(element => element.noun === e.target.value)
+    setSecondState({...secondState, parent: parent})
 
    }
    
     return (
-        <select onChange={e =>getCategorieId(e)} className="" name="" id="">
+        <select onChange={e =>getId(e)} className="" name="" id="" value={secondState && secondState.parent && secondState.parent.noun}>
             {state.map((item, index)=>{
                 return(
                      <option key={index}>{item.noun}</option>

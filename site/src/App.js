@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -25,6 +25,9 @@ function App() {
   const [squad, setSquad] = useState({})
   const [card, setCard] = useState({})
   const [categories, setCategories] = useState([])
+  const [squads, setSquads] = useState([])
+
+
 
   const hideNav = () => {
     if(toggleNav){
@@ -40,6 +43,7 @@ function App() {
   const token= localStorage.getItem('token') || sessionStorage.getItem('token')
 
   const context ={
+    squads,
     categories,
     card,
     squad,
@@ -52,6 +56,7 @@ function App() {
     setCategory,
     setSquad,
     setCard,
+    setSquads,
     setCategories
   }
 
