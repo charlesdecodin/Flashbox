@@ -43,7 +43,7 @@ CREATE TABLE card
     verso VARCHAR(100),
     evaluation BIT,
     card_rank INTEGER,
-    last_update TIME,
+    last_update TIMESTAMP,
     squad_id UUID,	
     FOREIGN KEY (squad_id) REFERENCES squad (squad_id) ON DELETE CASCADE
 );

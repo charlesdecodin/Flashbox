@@ -23,7 +23,7 @@ function App() {
     primary_color: "#000000",
    })
   const [squad, setSquad] = useState({})
-  const [card, setCard] = useState({})
+  const [card, setCard] = useState({evaluation: 1})
   const [categories, setCategories] = useState([])
   const [squads, setSquads] = useState([])
 

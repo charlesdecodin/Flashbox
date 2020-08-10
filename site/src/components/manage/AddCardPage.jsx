@@ -53,12 +53,13 @@ export default function AddCardPage() {
                 <InputListSquad/>
 
                 <select onChange={e =>getEval(e)}>
-                    <option value="own">Evaluation personnelle</option>
-                    <option value="computer">Evaluation ordinateur</option>
+                    <option value="1">Evaluation personnelle</option>
+                    <option value="0">Evaluation ordinateur</option>
                 </select>
 
                 <AddButton
                     state={card}
+                    path="card"
                 />
             </div>
 
