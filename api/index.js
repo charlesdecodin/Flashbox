@@ -8,7 +8,6 @@ const accountQueries = require('./queries/account')
 const categoryQueries = require('./queries/category')
 const categoryAccountQueries = require('./queries/account_category')
 const squadQueries = require('./queries/squad')
-const Auth = require('./middleware/Auth.js')
 
 app.use(cors())
 
@@ -31,6 +30,7 @@ app.post('/category', categoryQueries.createCategories)
 
 /* SQUAD */
 app.post('/squad', squadQueries.createSquad)
+app.get('/squad/:id', squadQueries.getSquadByCategoryId)
 
 /* ACCOUNT CATEGORY */
 app.post('/accountCategory', categoryAccountQueries.createAccountCategorie)

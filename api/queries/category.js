@@ -11,7 +11,7 @@ const getCategoriesByAccountId = (request, response) => {
         if (error){
             throw error
         }
-        console.log(results.rows);
+        
         response.status(200).json(results.rows)
     })
 }
