@@ -4,6 +4,7 @@ export default React.createContext({
     card: "",
     categories: "",
     squad: "",
+    squads: "",
     category: "",
     toggleProfilNav: "",
     server: "", 
@@ -12,6 +13,7 @@ export default React.createContext({
     setToggleProfilNav: (name)=>{},
     setCategory: (name)=>{},
     setSquad: (name)=>{},
+    setSquads: (name)=>{},
     setCard: (name)=>{},
     setCategories: (name)=>{},
 })
