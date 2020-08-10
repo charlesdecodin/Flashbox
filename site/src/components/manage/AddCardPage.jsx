@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import Header from '../Header.jsx'
 import Input from '../Input.jsx'
-import InputList from '../InputList.jsx'
+import InputList from '../InputListCategories.jsx'
 import AddButton from './AddButton.jsx'
 import CreateNav from './CreateNav.jsx'
 import Context from '../../context/context'
