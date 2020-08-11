@@ -24,7 +24,7 @@ export default function Navbar() {
                <li><img src={home} alt=""/></li>
                <li><img src={play} alt=""/></li>
                <li><Link to="/add"><img src={plus} alt=""/></Link></li>
-               <li><img src={update} alt=""/></li>
+               <li><Link to="/updateCategoriesPage"><img src={update} alt=""/></Link></li>
                <li><img src={store} alt=""/></li>
                <li onClick={handlerProfilNav}><img src={profil} alt=""/></li>
            </ul>
