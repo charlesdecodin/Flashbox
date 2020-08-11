@@ -3,9 +3,7 @@ const jwt = require('jsonwebtoken');
 const { uuid } = require('uuidv4');
 
 const createCard = (request, response)=>{
-
-    console.log(Date.now());
-    
+     
     const value = [
         uuid(),
         request.body.recto,

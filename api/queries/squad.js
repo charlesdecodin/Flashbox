@@ -22,7 +22,7 @@ const createSquad = (request, response)=>{
 
 const getSquadByCategoryId = (request, response)=>{
     const id = request.params.id
-    console.log(id);
+    
     db.query('SELECT * FROM squad where category_id = $1', [id], (error, results)=>{
         if(error){
             throw error
