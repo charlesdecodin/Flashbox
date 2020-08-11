@@ -35,11 +35,23 @@ const createCategories = (request, response) => {
     }else{
         response.status(201).send({ id: value[0], message: 'champs manquants', validation: false })
     }
+}
 
+const deleteCategory = (request, response) =>{
+
+  const id = request.params.id
+
+  db.query('DELETE FROM category WHERE category_id = $1',[id], (error, result)  =>{
+      if (error){
+          throw error 
+      }
+      response.status(201).send({ message: "Catégorie supprimée", validation: true})
+  })
 
 }
 
 module.exports = {
     getCategoriesByAccountId,
-    createCategories
+    createCategories,
+    deleteCategory
 }

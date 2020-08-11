@@ -19,6 +19,7 @@ export default function AddButton({state, path, setState}) {
         }
         const promise = await fetch(`${server}/${path}`, config)
         const content = await promise.json()
+        console.log(content);
         
         setValidationMessage(content.message);
 

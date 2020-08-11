@@ -28,6 +28,8 @@ app.post('/login', accountQueries.loginAccount)
 /* CATEGORY */
 app.get('/category', categoryQueries.getCategoriesByAccountId)
 app.post('/category', categoryQueries.createCategories)
+app.delete('/category/:id', categoryQueries.deleteCategory)
+
 
 /* SQUAD */
 app.post('/squad', squadQueries.createSquad)
