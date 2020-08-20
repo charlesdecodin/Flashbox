@@ -2,6 +2,7 @@ import React from 'react'
 import '../style/input.css'
 
 export default function Input({ placeholder, setState, name, state, type, value }) {
+    console.log(state);
 
     const handleValue = (e) => {
         //change value if input type is text

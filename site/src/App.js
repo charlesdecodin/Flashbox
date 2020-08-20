@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -20,9 +20,12 @@ function App() {
   const server = process.env.REACT_APP_SERVER_PATH
   const [toggleNav, setToggleNav] = useState(false)
   const [toggleProfilNav, setToggleProfilNav] = useState(false)
-  const [category, setCategory] = useState({})
-  const [squad, setSquad] = useState({})
-  const [card, setCard] = useState({evaluation: 1})
+  const [category, setCategory] = useState({method: "POST"})
+  const [squad, setSquad] = useState({method: "POST"})
+  const [card, setCard] = useState({
+    evaluation: 1, 
+    method: "POST"
+  })
   const [categories, setCategories] = useState([])
   const [squads, setSquads] = useState([])
   const [validationMessage, setValidationMessage] = useState('')

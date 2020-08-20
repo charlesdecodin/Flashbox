@@ -14,7 +14,7 @@ export default function AddButton({state, path, setState}) {
             headers : { 
                 "Content-Type": "application/json",
             },
-            method: "POST",
+            method: state.method,
             body: JSON.stringify(state),
         }
         const promise = await fetch(`${server}/${path}`, config)
@@ -49,6 +49,7 @@ export default function AddButton({state, path, setState}) {
                 body: JSON.stringify({token: token, content: content})
             }
             const promiseLink = await fetch(`${server}/accountCategory`, configLink)
+            console.log(promiseLink);
         }
     }
 

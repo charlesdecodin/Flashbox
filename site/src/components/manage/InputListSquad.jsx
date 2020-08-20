@@ -23,7 +23,7 @@ export default function InputListSquad() {
             getSquads() 
         }
        
-    },[squad])
+    },[squad, server])
 
     const getId = (e) =>{
     

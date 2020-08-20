@@ -18,14 +18,15 @@ const getCategoriesByAccountId = (request, response) => {
 
 const createCategories = (request, response) => {
 
+    console.log(request.body);
     const value = [
         uuid(),
-        request.body.name,
+        request.body.noun,
         request.body.primary_color,
         request.body.secondary_color
     ]
 
-    if (request.body.name) {
+    if (request.body.noun) {
         db.query('INSERT INTO category VALUES ($1, $2, $3, $4)', value, (error, result) => {
             if (error) {
                 throw error

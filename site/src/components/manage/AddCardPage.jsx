@@ -12,7 +12,7 @@ import ValidationMessage from './ValidationMessage.jsx'
 
 export default function AddCardPage() {
 
-    const { server, card, setCard, categories, setCategories, squad, setSquad, squads, setSquads} = useContext(Context)
+    const { card, setCard, categories, setCategories, squad, setSquad} = useContext(Context)
     
    
 

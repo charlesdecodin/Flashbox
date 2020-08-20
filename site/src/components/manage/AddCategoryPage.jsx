@@ -11,6 +11,8 @@ import ValidationMessage from './ValidationMessage.jsx'
 export default function AddCategoryPage() {
 
     const { category, setCategory } = useContext(Context)
+
+    console.log(category);
    
     return (
         <div>
@@ -23,9 +25,9 @@ export default function AddCategoryPage() {
                     state={category}
                     setState={setCategory}
                     placeholder="Nom"
-                    name="name"
+                    name="noun"
                     type="text"
-                    value={category.name}
+                    value={category.noun}
                 />
                 <AddButton
                     state={category}
