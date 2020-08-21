@@ -21,10 +21,6 @@ export default function UpdateContent({}) {
             [item.noun] : false,
         })
     }
-
-    const test = (index) => {
-        setCategory({...categories[index], method:"PUT"})
-    }
     
     useEffect(() => {
 
@@ -47,10 +43,9 @@ export default function UpdateContent({}) {
     }, [validationMessage, server, setCategories, token])
 
     const getId = (item) =>{
-    
     setSquad({
         ...squad,
-        parent: item
+         parent: item
     })
     }
 
@@ -60,7 +55,7 @@ export default function UpdateContent({}) {
                 return (
 
                     <div key={index} className="container-category" onClick={()=>{hideUpdateBtn(item)}}>
-                        <Link to="/updateSectionPage" onClick={()=>getId(item)} >
+                        <Link to="/updateSectionPage" onClick={()=>getId(item)}  >
                         <p>{item.noun.toUpperCase()}</p>  
                         </Link>
                         <ButtonUpdateDelete
@@ -71,8 +66,10 @@ export default function UpdateContent({}) {
                         item={item}
                         index={index}
                         state={categories}
+                        setState={setCategory}
                         property="category_id"
                         path="category"
+                        link="/add"
                         />   
                     </div>
                     

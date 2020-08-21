@@ -11,22 +11,22 @@ import ValidationMessage from './ValidationMessage.jsx'
 
 export default function AddSquadPage() {
 
-    const { squad, setSquad, categories, setCategories } = useContext(Context)
-
+    const { squad, setSquad, categories, setCategories} = useContext(Context)
+ 
+    console.log(squad);
     return (
         <div>
             <Header />
-            <CreateNav
-                focus='squad'
-            />
+            {squad.method === "PUT"? "" :<CreateNav focus='squad'/>}
+          
             <div className='form'>
                 <Input
                     state={squad}
                     setState={setSquad}
                     placeholder="Nom"
-                    name="name"
+                    name="noun"
                     type="text"
-                    value={squad.name}
+                    value={squad.noun}
                 />
                 <InputListCategories
                     state={categories}

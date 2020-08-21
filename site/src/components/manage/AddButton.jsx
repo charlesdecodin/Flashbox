@@ -8,7 +8,7 @@ export default function AddButton({state, path, setState}) {
 
     const {server, setValidationMessage, setToggleValidation} = useContext(Context)
 
-    console.log(state.method);
+
     
     const sendState = async() =>{
         const token = localStorage.getItem('token') || sessionStorage.getItem('token')
@@ -22,7 +22,7 @@ export default function AddButton({state, path, setState}) {
         }
         const promise = await fetch(`${server}/${path}`, config)
         const content = await promise.json()
-        console.log(content);
+
         
         setValidationMessage(content);
 

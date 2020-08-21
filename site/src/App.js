@@ -16,6 +16,7 @@ import AddSquadPage from './components/manage/AddSquadPage.jsx'
 import AddCardPage from './components/manage/AddCardPage.jsx'
 import UpdateCategoriesPage from './components/update/UpdateCategoriesPage.jsx'
 import UpdateSectionPage from './components/update/UpdateSectionPage.jsx'
+import UpdateCardPage from './components/update/UpdateCardPage.jsx'
 
 function App() {
   const server = process.env.REACT_APP_SERVER_PATH
@@ -29,6 +30,7 @@ function App() {
   })
   const [categories, setCategories] = useState([])
   const [squads, setSquads] = useState([])
+  const [cards, setCards] = useState([])
   const [validationMessage, setValidationMessage] = useState('')
   const [toggleValidation, setToggleValidation] = useState(false)
   const [toggleUpdate, setToggleUpdate] = useState(false)
@@ -43,6 +45,9 @@ function App() {
     if(toggleProfilNav){
       setToggleProfilNav(false)
     }
+    if(toggleUpdate){
+      setToggleUpdate(false)
+    }
   }
 
 
@@ -50,6 +55,7 @@ function App() {
   const token= localStorage.getItem('token') || sessionStorage.getItem('token')
 
   const context ={
+    cards,
     toggleUpdate,
     toggleValidation,
     validationMessage,
@@ -70,6 +76,7 @@ function App() {
     setCategories,
     setValidationMessage,
     setToggleValidation,
+    setCards,
     setToggleUpdate
   }
 
@@ -108,10 +115,12 @@ function App() {
         <Route path="/updateSectionPage">
           <UpdateSectionPage/>
         </Route>
+        <Route path="/updateCardPage">
+          <UpdateCardPage/>
+        </Route>
       </Switch>
     </Router>
     </div>
-   
     </Context.Provider>
   );
 }

@@ -12,10 +12,20 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
 
-    const {toggleNav, toggleProfilNav ,setToggleProfilNav} = useContext(Context)
+    const {toggleNav, toggleProfilNav ,setToggleProfilNav, setSquad, setCategory, squad} = useContext(Context)
 
     const handlerProfilNav = ()=>{
         setToggleProfilNav(!toggleProfilNav)
+    }
+    
+    const resetMethod = () => { 
+        setSquad({
+            method:'POST'
+        })
+        setCategory({
+            method:'POST'
+        })
+
     }
 
     return (
@@ -23,7 +33,7 @@ export default function Navbar() {
            <ul className="list-navbar">
                <li><img src={home} alt=""/></li>
                <li><img src={play} alt=""/></li>
-               <li><Link to="/add"><img src={plus} alt=""/></Link></li>
+               <li><Link  onClick={resetMethod} to="/add"><img src={plus} alt=""/></Link></li>
                <li><Link to="/updateCategoriesPage"><img src={update} alt=""/></Link></li>
                <li><img src={store} alt=""/></li>
                <li onClick={handlerProfilNav}><img src={profil} alt=""/></li>

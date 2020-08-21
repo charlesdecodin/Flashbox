@@ -61,7 +61,6 @@ export default function AddCardPage() {
                 <AddButton
                     state={card}
                     path="card"
-                    setContentState={setCard}
                     setState={setCard}
                 />
                 <ValidationMessage/>

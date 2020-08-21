@@ -15,9 +15,8 @@ export default function AddCategoryPage() {
     return (
         <div>
             <Header />
-            <CreateNav
-                focus='category'
-            />
+            {category.method === "PUT"? "" :<CreateNav focus='category'/>}
+           
             <div className='form'>
                 <Input
                     state={category}

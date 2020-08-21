@@ -4,8 +4,7 @@ import Context from '../../context/context'
 export default function InputListSquad() {
 
     const [squadsByCategories, setSquadsByCategories] = useState([])
-    const { server, squad, card, setCard } = useContext(Context)
-    console.log(squad);
+    const { server, squad, card, setCard} = useContext(Context)
     useEffect(()=>{
         const getSquads = async () =>{
             const config = {
@@ -28,7 +27,7 @@ export default function InputListSquad() {
     const getId = (e) =>{
     
         const parent = squadsByCategories.find(element => element.noun === e.target.value)
-        setCard({...card, parent: parent.squad_id})
+        setCard({...card,   parent: parent.squad_id})
 
     }
 

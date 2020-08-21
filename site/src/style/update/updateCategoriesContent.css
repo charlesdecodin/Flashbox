@@ -34,6 +34,17 @@
     margin: 0;
    
 }
+
+.container-category>p{
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1.7px;
+    color: #CCCCCC;
+    width: 100%;
+    padding: 25px;
+    margin: 0;
+}
+
 .container-category>a{ 
     width: 70%;
     text-decoration: none;

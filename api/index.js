@@ -35,10 +35,13 @@ app.delete('/category/:id', categoryQueries.deleteCategory)
 /* SQUAD */
 app.post('/squad', squadQueries.createSquad)
 app.get('/squad/:id', squadQueries.getSquadByCategoryId)
+app.put('/squad', squadQueries.updateSquad)
 app.delete('/squad/:id', squadQueries.deleteSquad)
 
 /* CARD */
 app.post('/card', cardQueries.createCard)
+app.get('/card/:id', cardQueries.getCardBySquadId)
+app.delete('/card/:id', cardQueries.deleteCard)
 
 /* ACCOUNT CATEGORY */
 app.post('/accountCategory', categoryAccountQueries.createAccountCategorie)
