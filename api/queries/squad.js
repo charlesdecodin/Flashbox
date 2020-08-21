@@ -31,7 +31,20 @@ const getSquadByCategoryId = (request, response)=>{
     })
 }
 
+const deleteSquad = (request, response) =>{
+    const id = request.params.id
+
+    db.query('DELETE FROM squad WHERE squad_id = $1', [id], (error, result)=>{
+        if(error){
+            throw error
+        }
+        response.status(201).send({message: "Section supprimée", validation: true, id: request.params.id})
+    })
+
+}
+
 module.exports = {
     createSquad,
-    getSquadByCategoryId
+    getSquadByCategoryId,
+    deleteSquad
 }

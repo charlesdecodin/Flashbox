@@ -7,7 +7,7 @@ import ButtonUpdateDelete from './ButtonUpdateDelete.jsx'
 
 export default function UpdateSectionContent() {
 
-    const {server, squad, squads, setSquads, toggleUpdate, setToggleUpdate }= useContext(Context)
+    const {server, squad, squads, setSquads, toggleUpdate, setToggleUpdate, validationMessage}= useContext(Context)
     console.log(squad);
     useEffect(()=>{
         const getSquads = async () =>{
@@ -27,7 +27,7 @@ export default function UpdateSectionContent() {
             getSquads() 
         }
        
-    },[squad, server])
+    },[squad, server, validationMessage])
 
 
     console.log(squads);
@@ -46,6 +46,10 @@ export default function UpdateSectionContent() {
                        toggleUpdate={toggleUpdate}
                        item={item}
                        index={index}
+                       state={squads}
+                       property="squad_id"
+                       path="squad"
+                       link=""
                        />
                    </div>
                )

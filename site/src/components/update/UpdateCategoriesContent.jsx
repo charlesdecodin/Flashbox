@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState} from 'react'
+import React, { useContext, useEffect } from 'react'
 import Context from '../../context/context'
 import '../../style/update/updateCategoriesContent.css'
 import UpdateDelete from './UpdateDelete.jsx'
@@ -71,8 +71,8 @@ export default function UpdateContent({}) {
                         item={item}
                         index={index}
                         state={categories}
-                        property={"category_id"}
-                        path={"category"}
+                        property="category_id"
+                        path="category"
                         />   
                     </div>
                     

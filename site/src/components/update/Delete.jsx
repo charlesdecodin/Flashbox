@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import trash from '../../images/trash.svg'
 import Context from '../../context/context'
 
-export default function DeleteCategories({index, state, property, path}) {
+export default function Delete({index, state, property, path}) {
     const { server, setValidationMessage} = useContext(Context)
     
     const deleteCategorie = async (index) => { 
