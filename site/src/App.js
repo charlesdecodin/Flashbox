@@ -31,6 +31,7 @@ function App() {
   const [squads, setSquads] = useState([])
   const [validationMessage, setValidationMessage] = useState('')
   const [toggleValidation, setToggleValidation] = useState(false)
+  const [toggleUpdate, setToggleUpdate] = useState(false)
 
 
 
@@ -49,6 +50,7 @@ function App() {
   const token= localStorage.getItem('token') || sessionStorage.getItem('token')
 
   const context ={
+    toggleUpdate,
     toggleValidation,
     validationMessage,
     squads,
@@ -67,7 +69,8 @@ function App() {
     setSquads,
     setCategories,
     setValidationMessage,
-    setToggleValidation
+    setToggleValidation,
+    setToggleUpdate
   }
 
   return (

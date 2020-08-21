@@ -2,10 +2,12 @@ import React,{useEffect, useContext} from 'react'
 import Context from '../../context/context'
 import '../../style/update/updateCategoriesContent.css'
 import {Link} from "react-router-dom"
+import UpdateDelete from "./UpdateDelete.jsx"
+import ButtonUpdateDelete from './ButtonUpdateDelete.jsx'
 
 export default function UpdateSectionContent() {
 
-    const {server, squad, squads, setSquads }= useContext(Context)
+    const {server, squad, squads, setSquads, toggleUpdate, setToggleUpdate }= useContext(Context)
     console.log(squad);
     useEffect(()=>{
         const getSquads = async () =>{
@@ -37,7 +39,14 @@ export default function UpdateSectionContent() {
                        <Link >
                        <p>{item.noun.toUpperCase()}</p>
                        </Link>
-                       
+                       <ButtonUpdateDelete
+                        item={item}
+                        />
+                       <UpdateDelete
+                       toggleUpdate={toggleUpdate}
+                       item={item}
+                       index={index}
+                       />
                    </div>
                )
            })}

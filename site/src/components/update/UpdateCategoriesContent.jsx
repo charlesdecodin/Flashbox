@@ -1,25 +1,19 @@
 import React, { useContext, useEffect, useState} from 'react'
 import Context from '../../context/context'
 import '../../style/update/updateCategoriesContent.css'
-import cog from '../../images/cog.svg'
 import UpdateDelete from './UpdateDelete.jsx'
+import ButtonUpdateDelete from './ButtonUpdateDelete.jsx'
 import {Link} from "react-router-dom"
 
 
 export default function UpdateContent({}) {
 
-    const { server, setCategories, categories, validationMessage, setCategory, setSquad, squad} = useContext(Context)
-    const [toggleUpdate, setToggleUpdate] = useState(false)
+    const { server, setCategories, categories, validationMessage, setCategory, setSquad, squad, toggleUpdate, setToggleUpdate} = useContext(Context)
+    
 
     const token = localStorage.getItem('token') || sessionStorage.getItem('token')
 
-    const showUpdateBtn = (e, item) => {
-        e.stopPropagation(); 
-        setToggleUpdate({
-            ...toggleUpdate,
-            [item.noun] : true,
-        })
-    }
+   
 
     const hideUpdateBtn = (item) =>{
         setToggleUpdate({
@@ -69,12 +63,17 @@ export default function UpdateContent({}) {
                         <Link to="/updateSectionPage" onClick={()=>getId(item)} >
                         <p>{item.noun.toUpperCase()}</p>  
                         </Link>
-                        <img style={toggleUpdate[item.noun]?{display: "none"}:{display: "block"}} src={cog} alt="" onClick={(e)=>{showUpdateBtn(e, item)}}/>
+                        <ButtonUpdateDelete
+                        item={item}
+                        />
                         <UpdateDelete
                         toggleUpdate={toggleUpdate}
                         item={item}
                         index={index}
-                    />   
+                        state={categories}
+                        property={"category_id"}
+                        path={"category"}
+                        />   
                     </div>
                     
                 )

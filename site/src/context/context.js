@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default React.createContext({
+    toggleUpdate: "",
     toggleValidation: "",
     card: "",
     validationMessage: "",
@@ -20,4 +21,5 @@ export default React.createContext({
     setCategories: (name)=>{},
     setValidationMessage: (name)=>{},
     setToggleValidation: (name)=>{},
+    setToggleUpdate: (name)=>{},
 })
