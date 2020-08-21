@@ -18,7 +18,6 @@ const getCategoriesByAccountId = (request, response) => {
 
 const createCategories = (request, response) => {
 
-    console.log(request.body);
     const value = [
         uuid(),
         request.body.noun,
@@ -38,6 +37,22 @@ const createCategories = (request, response) => {
     }
 }
 
+const updateCategory = (request, response)=>{
+
+    const value = [
+        request.body.noun,
+        request.body.category_id
+    ]
+
+    db.query('UPDATE category SET noun = $1 WHERE category_id = $2 ',value, (error, result) =>{
+        if (error){
+            console.log(error);
+        }
+        response.status(201).send({message: "Catégorie modifiée", validation: true})
+    })
+    
+}
+
 const deleteCategory = (request, response) =>{
 
   const id = request.params.id
@@ -46,7 +61,7 @@ const deleteCategory = (request, response) =>{
       if (error){
           throw error 
       }
-      response.status(201).send({ message: "Catégorie supprimée", validation: true})
+      response.status(201).send({ message: "Catégorie supprimée", validation: true, id: request.params.id})
   })
 
 }
@@ -54,5 +69,6 @@ const deleteCategory = (request, response) =>{
 module.exports = {
     getCategoriesByAccountId,
     createCategories,
-    deleteCategory
+    deleteCategory, 
+    updateCategory
 }

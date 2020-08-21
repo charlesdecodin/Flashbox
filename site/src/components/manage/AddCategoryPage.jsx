@@ -11,8 +11,6 @@ import ValidationMessage from './ValidationMessage.jsx'
 export default function AddCategoryPage() {
 
     const { category, setCategory } = useContext(Context)
-
-    console.log(category);
    
     return (
         <div>
@@ -33,7 +31,6 @@ export default function AddCategoryPage() {
                     state={category}
                     path="category"
                     setState={setCategory}
-                   
                 />
 
                 <ValidationMessage/>

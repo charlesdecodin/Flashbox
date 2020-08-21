@@ -15,6 +15,7 @@ import AddCategoryPage from './components/manage/AddCategoryPage.jsx'
 import AddSquadPage from './components/manage/AddSquadPage.jsx'
 import AddCardPage from './components/manage/AddCardPage.jsx'
 import UpdateCategoriesPage from './components/update/UpdateCategoriesPage.jsx'
+import UpdateSectionPage from './components/update/UpdateSectionPage.jsx'
 
 function App() {
   const server = process.env.REACT_APP_SERVER_PATH
@@ -100,6 +101,9 @@ function App() {
         </Route>
         <Route path="/updateCategoriesPage">
           <UpdateCategoriesPage/>
+        </Route>
+        <Route path="/updateSectionPage">
+          <UpdateSectionPage/>
         </Route>
       </Switch>
     </Router>

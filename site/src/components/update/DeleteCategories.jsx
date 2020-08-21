@@ -14,7 +14,7 @@ export default function DeleteCategories({index}) {
 
         const promise = await fetch(`${server}/category/${categories[index].category_id}`, config)
         const content = await promise.json()
-        setValidationMessage(content.message)
+        setValidationMessage(content)
 
     }
     

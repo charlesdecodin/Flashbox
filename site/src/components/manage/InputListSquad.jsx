@@ -5,7 +5,7 @@ export default function InputListSquad() {
 
     const [squadsByCategories, setSquadsByCategories] = useState([])
     const { server, squad, card, setCard } = useContext(Context)
-
+    console.log(squad);
     useEffect(()=>{
         const getSquads = async () =>{
             const config = {

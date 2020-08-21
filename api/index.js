@@ -28,6 +28,7 @@ app.post('/login', accountQueries.loginAccount)
 /* CATEGORY */
 app.get('/category', categoryQueries.getCategoriesByAccountId)
 app.post('/category', categoryQueries.createCategories)
+app.put('/category', categoryQueries.updateCategory)
 app.delete('/category/:id', categoryQueries.deleteCategory)
 
 

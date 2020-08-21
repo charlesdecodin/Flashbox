@@ -2,10 +2,13 @@ import React, { useContext } from 'react'
 import plus from '../../images/plus.svg'
 import '../../style/manage/addButton.css'
 import Context from '../../context/context'
+import { Link } from 'react-router-dom'
 
 export default function AddButton({state, path, setState}) {
 
     const {server, setValidationMessage, setToggleValidation} = useContext(Context)
+
+    console.log(state.method);
     
     const sendState = async() =>{
         const token = localStorage.getItem('token') || sessionStorage.getItem('token')
@@ -21,12 +24,12 @@ export default function AddButton({state, path, setState}) {
         const content = await promise.json()
         console.log(content);
         
-        setValidationMessage(content.message);
+        setValidationMessage(content);
 
         if(path === "card"){
-             setState({evaluation: 1})
+             setState({evaluation: 1, method: "POST"})
         }else{
-            setState({})
+            setState({method: "POST"})
         }
        
 
@@ -53,8 +56,14 @@ export default function AddButton({state, path, setState}) {
         }
     }
 
-
-    return (
+if(state.method=== "POST"){
+     return (
         <img onClick={sendState} className="add-btn" src={plus} alt=""/>
     )
+}else if(state.method=== "PUT"){
+    return(
+        <Link to="/updateCategoriesPage" onClick={sendState} ><img className="add-btn" src={plus} alt=""/></Link>
+    )
+}
+   
 }

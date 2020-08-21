@@ -9,7 +9,7 @@ export default function ValidationMessage() {
     return (
         <div className="validation-message" style={toggleValidation ? {display: "block"}: {display:"none"}}>
             <p>
-                 {validationMessage}
+                 {validationMessage.message}
             </p>
         </div>
     )

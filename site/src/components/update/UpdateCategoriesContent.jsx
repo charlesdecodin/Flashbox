@@ -2,14 +2,13 @@ import React, { useContext, useEffect, useState} from 'react'
 import Context from '../../context/context'
 import '../../style/update/updateCategoriesContent.css'
 import cog from '../../images/cog.svg'
-import update from '../../images/update.svg'
-import DeleteCategories from './DeleteCategories.jsx'
+import UpdateDelete from './UpdateDelete.jsx'
 import {Link} from "react-router-dom"
 
 
-export default function UpdateContent() {
+export default function UpdateContent({}) {
 
-    const { server, setCategories, categories, validationMessage, setCategory } = useContext(Context)
+    const { server, setCategories, categories, validationMessage, setCategory, setSquad, squad} = useContext(Context)
     const [toggleUpdate, setToggleUpdate] = useState(false)
 
     const token = localStorage.getItem('token') || sessionStorage.getItem('token')
@@ -31,7 +30,6 @@ export default function UpdateContent() {
 
     const test = (index) => {
         setCategory({...categories[index], method:"PUT"})
-        console.log(categories[index]);
     }
     
     useEffect(() => {
@@ -48,12 +46,19 @@ export default function UpdateContent() {
             const content = await promise.json()
 
             setCategories(content)
-            
         }
 
         getData()
 
     }, [validationMessage, server, setCategories, token])
+
+    const getId = (item) =>{
+    
+    setSquad({
+        ...squad,
+        parent: item
+    })
+    }
 
     return (
         <div className="container-categories">
@@ -61,20 +66,17 @@ export default function UpdateContent() {
                 return (
 
                     <div key={index} className="container-category" onClick={()=>{hideUpdateBtn(item)}}>
-                        <p>{item.noun}</p>
+                        <Link to="/updateSectionPage" onClick={()=>getId(item)} >
+                        <p>{item.noun.toUpperCase()}</p>  
+                        </Link>
                         <img style={toggleUpdate[item.noun]?{display: "none"}:{display: "block"}} src={cog} alt="" onClick={(e)=>{showUpdateBtn(e, item)}}/>
-                        <div style={toggleUpdate[item.noun]?{display: "block"}:{display: "none"}} >
-                            <DeleteCategories
-                            index = {index}
-                            />
-                            <Link onClick={()=>{test(index)}} to="/add">
-                            <img  src={update} alt="" /> 
-                            </Link>
-                               
-                        </div>
+                        <UpdateDelete
+                        toggleUpdate={toggleUpdate}
+                        item={item}
+                        index={index}
+                    />   
                     </div>
-
-
+                    
                 )
             })}
         </div>
