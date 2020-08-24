@@ -27,7 +27,10 @@ export default function InputListSquad() {
     const getId = (e) =>{
     
         const parent = squadsByCategories.find(element => element.noun === e.target.value)
-        setCard({...card,   parent: parent.squad_id})
+        if(parent){
+            setCard({...card, parent: parent.squad_id})
+        }
+        
 
     }
 

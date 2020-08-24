@@ -29,7 +29,10 @@ export default function InputList({ state, setState, path, secondState, setSecon
     const getId = (e) => {
 
         const parent = state.find(element => element.noun === e.target.value)
-        setSecondState({ ...secondState, parent: parent })
+        if(parent){
+          setSecondState({ ...secondState, parent: parent })  
+        }
+        
 
     }
 

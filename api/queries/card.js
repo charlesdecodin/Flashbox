@@ -45,6 +45,23 @@ const deleteCard = (request, response) => {
         }
         response.status(201).send({ message: "Carte supprimée", validation: true, id: request.params.id })
     })
+}
+
+const updateCard = (request, response) => {
+
+    const value = [
+        request.body.recto,
+        request.body.verso,
+        request.body.squad_id,
+        request.body.card_id
+    ]
+    
+    db.query('UPDATE card SET recto = $1, verso = $2, squad_id= $3 WHERE card_id = $4', value, (error, result) => {
+        if (error) {
+            throw error
+        }
+        response.status(201).send({ message: "Carte modifiée", validation: true })
+    })
 
 }
 
@@ -53,5 +70,6 @@ const deleteCard = (request, response) => {
 module.exports = {
     createCard,
     getCardBySquadId,
-    deleteCard
+    deleteCard,
+    updateCard
 }
