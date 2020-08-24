@@ -41,6 +41,7 @@ app.delete('/squad/:id', squadQueries.deleteSquad)
 /* CARD */
 app.post('/card', cardQueries.createCard)
 app.get('/card/:id', cardQueries.getCardBySquadId)
+app.get('/cardDate/:id', cardQueries.getCardByDate)
 app.delete('/card/:id', cardQueries.deleteCard)
 app.put('/card', cardQueries.updateCard)
 

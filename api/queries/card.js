@@ -3,6 +3,13 @@ const jwt = require('jsonwebtoken');
 const { uuid } = require('uuidv4');
 
 const createCard = (request, response)=>{
+
+
+    let today = new Date()
+    let dd = today.getDate() + 2
+    let mm = today.getMonth() + 1
+    let yyyy = today.getFullYear()
+    today = `${dd}-${mm}-${yyyy}`
      
     const value = [
         uuid(),
@@ -10,7 +17,7 @@ const createCard = (request, response)=>{
         request.body.verso,
         request.body.evaluation,
         1,
-        new Date(),
+        today,
         request.body.parent
     ]
 
@@ -33,6 +40,10 @@ const getCardBySquadId = (request, response)=> {
         }
         response.status(200).json(results.rows)
     })
+}
+
+const getCardByDate = (request, response) => {
+    const date = request.params.date
 }
 
 const deleteCard = (request, response) => {
@@ -71,5 +82,5 @@ module.exports = {
     createCard,
     getCardBySquadId,
     deleteCard,
-    updateCard
+    updateCard,
 }
