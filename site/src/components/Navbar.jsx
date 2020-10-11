@@ -32,7 +32,7 @@ export default function Navbar() {
         <nav className="navbar" style={toggleNav? {marginTop: "-16px", zIndex: "3", boxShadow: "0px 1px 10px 1px #20232a" }: {marginTop:"-65px", zIndex: "1"}}>
            <ul className="list-navbar">
                <li><img src={home} alt=""/></li>
-               <li><img src={play} alt=""/></li>
+               <li> <Link to="/playPage"><img src={play} alt=""/></Link> </li>
                <li><Link  onClick={resetMethod} to="/add"><img src={plus} alt=""/></Link></li>
                <li><Link to="/updateCategoriesPage"><img src={update} alt=""/></Link></li>
                <li><img src={store} alt=""/></li>

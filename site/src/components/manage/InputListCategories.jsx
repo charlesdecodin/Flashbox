@@ -19,7 +19,7 @@ export default function InputList({ state, setState, path, secondState, setSecon
 
             const promise = await fetch(`${server}/${path}`, config)
             const content = await promise.json()
-
+            console.log(content);
             setState(content)
             /* setSecondState({...secondState, parent: content[content.length-1] }) */
         }

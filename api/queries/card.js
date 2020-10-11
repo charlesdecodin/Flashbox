@@ -6,7 +6,7 @@ const createCard = (request, response)=>{
 
 
     let today = new Date()
-    let dd = today.getDate() + 2
+    let dd = today.getDate()
     let mm = today.getMonth() + 1
     let yyyy = today.getFullYear()
     today = `${dd}-${mm}-${yyyy}`
@@ -43,7 +43,16 @@ const getCardBySquadId = (request, response)=> {
 }
 
 const getCardByDate = (request, response) => {
+    console.log(request.params);
     const date = request.params.date
+    console.log(date);
+
+    db.query('SELECT * FROM card WHERE last_update < $1 LIMIT 1', [date], (error, results)=>{
+        if(error){
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
 }
 
 const deleteCard = (request, response) => {
@@ -60,14 +69,18 @@ const deleteCard = (request, response) => {
 
 const updateCard = (request, response) => {
 
+    console.log(request.body);
+
     const value = [
         request.body.recto,
         request.body.verso,
         request.body.squad_id,
+        request.body.card_rank,
+        request.body.last_update,
         request.body.card_id
     ]
     
-    db.query('UPDATE card SET recto = $1, verso = $2, squad_id= $3 WHERE card_id = $4', value, (error, result) => {
+    db.query('UPDATE card SET recto = $1, verso = $2, squad_id= $3, card_rank = $4, last_update = $5 WHERE card_id = $6', value, (error, result) => {
         if (error) {
             throw error
         }
@@ -83,4 +96,5 @@ module.exports = {
     getCardBySquadId,
     deleteCard,
     updateCard,
+    getCardByDate
 }
